@@ -1,0 +1,26 @@
+<h1>my dogs</h1>
+
+<!-- lets you see all the dogs - write each loop to show the dogs in table -->
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.id %></td>
+        <td><%= dog.name %></td>
+        <td><%= dog.breed %></td>
+        <td><%= dog.age %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+<%= link_to "add a new dog!", new_dog_path %>
