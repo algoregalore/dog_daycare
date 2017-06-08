@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # key value pair
   #resources is method with arguments
-  resources :dogs, only: [:index, :new, :create, :show, :edit, :update]
+  resources :dogs, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
   # show lets us see individual item in database
 

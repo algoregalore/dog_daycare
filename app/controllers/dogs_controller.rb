@@ -44,11 +44,20 @@ class DogsController < ApplicationController
     end
   end
 
+  def destroy
+    @dog =  Dog.find(params[:id])
+
+    if @dog.destroy
+      redirect_to dogs_url, notice: "succuessfully deleted"
+    else
+      redirect_to dogs_url, notice: "error- couldn't delete"
+    end
+  end
+
   # allow this only, params
   private
   def dog_params
     params.require(:dog).permit(:name, :age, :breed)
 
   end
-
 end
