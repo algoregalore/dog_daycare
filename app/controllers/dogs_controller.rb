@@ -27,6 +27,23 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
   end
 
+  # set up view for edit page
+  def edit
+    @dog = Dog.find(params[:id])
+  end
+
+  # update form
+  def update
+    @dog = Dog.find(params[:id])
+
+    if @dog.update(dog_params)
+      redirect_to dogs_url, notice: "updated successfully"
+    else
+      flash.now[:notice] = "try again, something went wrong"
+      render :edit
+    end
+  end
+
   # allow this only, params
   private
   def dog_params
