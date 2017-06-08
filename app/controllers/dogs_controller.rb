@@ -22,6 +22,11 @@ class DogsController < ApplicationController
     end
   end
 
+  # set up view for individual dogs
+  def show
+    @dog = Dog.find(params[:id])
+  end
+
   # allow this only, params
   private
   def dog_params
