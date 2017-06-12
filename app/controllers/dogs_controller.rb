@@ -1,6 +1,7 @@
 # instance variable
-
 class DogsController < ApplicationController
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
+
   def index
     # class method - model is dog.rb
     @dogs = Dog.all
@@ -24,17 +25,14 @@ class DogsController < ApplicationController
 
   # set up view for individual dogs
   def show
-    @dog = Dog.find(params[:id])
   end
 
   # set up view for edit page
   def edit
-    @dog = Dog.find(params[:id])
   end
 
   # update form
   def update
-    @dog = Dog.find(params[:id])
 
     if @dog.update(dog_params)
       redirect_to dogs_url, notice: "updated successfully"
@@ -45,7 +43,6 @@ class DogsController < ApplicationController
   end
 
   def destroy
-    @dog =  Dog.find(params[:id])
 
     if @dog.destroy
       redirect_to dogs_url, notice: "succuessfully deleted"
@@ -57,7 +54,11 @@ class DogsController < ApplicationController
   # allow this only, params
   private
   def dog_params
-    params.require(:dog).permit(:name, :age, :breed)
+    params.require(:dog).permit(:name, :age, :breed, :owner)
+  end
 
+  # before action at top - goes to find where the below code goes, before this was in 4 methods
+  def set_dog
+    @dog = Dog.find(params[:id])
   end
 end
