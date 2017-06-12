@@ -54,7 +54,7 @@ class DogsController < ApplicationController
   # allow this only, params
   private
   def dog_params
-    params.require(:dog).permit(:name, :age, :breed, :owner)
+    params.require(:dog).permit(:name, :age, :breed, :owner_id)
   end
 
   # before action at top - goes to find where the below code goes, before this was in 4 methods
