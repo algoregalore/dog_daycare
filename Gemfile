@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 
 # our gems are below
 gem 'stamp'
+gem 'annotate'
 
 
 

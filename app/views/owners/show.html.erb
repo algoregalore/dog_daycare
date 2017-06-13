@@ -10,5 +10,14 @@
   <%= @owner.phone %>
 </p>
 
+<p>
+  <strong>Dogs:</strong>
+  <ul>
+    <% @owner.dogs.order("name").each do |dog| %>
+    <li><%= dog.name %></li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_owner_path(@owner) %> |
 <%= link_to 'Back', owners_path %>

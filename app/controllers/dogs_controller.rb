@@ -4,7 +4,7 @@ class DogsController < ApplicationController
 
   def index
     # class method - model is dog.rb
-    @dogs = Dog.all
+    @dogs = Dog.order(:name)
   end
 
 # need argument for the form to assign attributes
